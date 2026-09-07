@@ -11,4 +11,20 @@ public class Ship extends ShipTemplate {
         super.setCurrentTankStatus(startFuel);
         super.setCurrentLoadStatus(startCurrentCapacity);
     }
+
+    public void shipUpdate(int tankFuel, int fuelConsumption, int loadMass, int unloadMass) {
+        this.setCurrentTankStatus(getCurrentTankStatus() + tankFuel);
+        this.setCurrentTankStatus(getCurrentTankStatus() - fuelConsumption);
+        this.setCurrentLoadStatus(getCurrentLoadStatus() + loadMass);
+        this.setCurrentLoadStatus(getCurrentLoadStatus() - unloadMass);
+    }
+
+    @Override
+    public String toString() {
+        return "Ship{" +
+                "name=" + super.getName() +
+                ", fuel=" + super.getCurrentTankStatus() + " / " + super.getMaxFuel() +
+                ", cargo=" + super.getCurrentLoadStatus() + " / " + super.getMaxLoadCapacity() +
+                '}';
+    }
 }
