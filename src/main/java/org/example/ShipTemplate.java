@@ -1,6 +1,6 @@
 package org.example;
 
-public class Ship {
+public abstract class ShipTemplate {
     private String name;
     private int maxFuel;
     private int currentTankStatus;
