@@ -7,19 +7,35 @@ public class Ship extends ShipTemplate {
     }
 
     public void tankFuel(int tankFuel) {
-        this.setCurrentTankStatus(getCurrentTankStatus() + tankFuel);
+        if (tankFuel > 0) {
+            this.setCurrentTankStatus(getCurrentTankStatus() + tankFuel);
+        } else {
+            System.out.println("It's impossible to tank this value of fuel");
+        }
     }
 
     public void consumeFuel(int consumeFuel) {
-        this.setCurrentTankStatus(getCurrentTankStatus() - consumeFuel);
+        if (consumeFuel > 0) {
+            this.setCurrentTankStatus(getCurrentTankStatus() - consumeFuel);
+        } else {
+            System.out.println("It's impossible to consumeFuel with this value of fuel");
+        }
     }
 
     public void loadCargo(int loadCargo) {
-        this.setCurrentLoadStatus(getCurrentLoadStatus() + loadCargo);
+        if (loadCargo > 0) {
+            this.setCurrentLoadStatus(getCurrentLoadStatus() + loadCargo);
+        } else {
+            System.out.println("It's impossible to load this value of cargo");
+        }
     }
 
     public void unloadCargo(int unloadCargo) {
-        this.setCurrentLoadStatus(getCurrentLoadStatus() - unloadCargo);
+        if (unloadCargo > 0) {
+            this.setCurrentLoadStatus(getCurrentLoadStatus() - unloadCargo);
+        } else {
+            System.out.println("It's impossible to unload this value of cargo");
+        }
     }
 
     @Override
