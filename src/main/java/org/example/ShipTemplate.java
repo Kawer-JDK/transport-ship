@@ -29,7 +29,7 @@ public abstract class ShipTemplate {
     }
 
     protected void setMaxFuel(int maxFuel) {
-        if (maxFuel > 0) {
+        if (maxFuel >= 0) {
             this.maxFuel = maxFuel;
         } else {
             System.out.println("Maximum fuel must be higher than 0!");
@@ -54,7 +54,7 @@ public abstract class ShipTemplate {
     }
 
     protected void setMaxLoadCapacity(int maxLoadCapacity) {
-        if (maxLoadCapacity > 0) {
+        if (maxLoadCapacity >= 0) {
             this.maxLoadCapacity = maxLoadCapacity;
         } else {
             System.out.println("Maximum load capacity must be higher than 0!");
