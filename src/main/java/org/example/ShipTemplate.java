@@ -6,12 +6,21 @@ public abstract class ShipTemplate {
     private int currentTankStatus;
     private int maxLoadCapacity;
     private int currentLoadStatus;
+    private int startCurrentCapacity = 0;
+
+    protected ShipTemplate(String name, int maxFuel, int maxLoadCapacity) {
+        setName(name);
+        setMaxFuel(maxFuel);
+        setMaxLoadCapacity(maxLoadCapacity);
+        setCurrentTankStatus(maxFuel);
+        setCurrentLoadStatus(startCurrentCapacity);
+    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    protected void setName(String name) {
         this.name = name;
     }
 
@@ -19,7 +28,7 @@ public abstract class ShipTemplate {
         return maxFuel;
     }
 
-    public void setMaxFuel(int maxFuel) {
+    protected void setMaxFuel(int maxFuel) {
         if (maxFuel > 0) {
             this.maxFuel = maxFuel;
         } else {
@@ -31,12 +40,12 @@ public abstract class ShipTemplate {
         return currentTankStatus;
     }
 
-    public void setCurrentTankStatus(int currentTankStatus) {
-        if (currentTankStatus > maxFuel || maxFuel < 0) {
+    protected void setCurrentTankStatus(int currentTankStatus) {
+        if (currentTankStatus > maxFuel || currentTankStatus < 0) {
             System.out.println("Is impossible to tank with this value");
-            this.currentTankStatus = this.currentTankStatus; // nie wiedziałem jak tutaj zrobić coś podobnego do break;
+            return;
         } else {
-            this.currentTankStatus = currentTankStatus;
+            this.currentTankStatus += currentTankStatus;
         }
     }
 
@@ -44,7 +53,7 @@ public abstract class ShipTemplate {
         return maxLoadCapacity;
     }
 
-    public void setMaxLoadCapacity(int maxLoadCapacity) {
+    protected void setMaxLoadCapacity(int maxLoadCapacity) {
         if (maxLoadCapacity > 0) {
             this.maxLoadCapacity = maxLoadCapacity;
         } else {
@@ -56,12 +65,12 @@ public abstract class ShipTemplate {
         return currentLoadStatus;
     }
 
-    public void setCurrentLoadStatus(int currentLoadStatus) {
+    protected void setCurrentLoadStatus(int currentLoadStatus) {
         if (currentLoadStatus > maxLoadCapacity || currentLoadStatus < 0) {
             System.out.println("Is impossible to load ship with this value");
-            this.currentLoadStatus = this.currentLoadStatus;
+            return;
         } else {
-            this.currentLoadStatus = currentLoadStatus;
+            this.currentLoadStatus += currentLoadStatus;
         }
     }
 }
