@@ -1,7 +1,6 @@
 package org.example;
 
 public class Ship extends ShipTemplate {
-    private int startCurrentCapacity = 0;
 
     public Ship(String name, int maxFuel, int maxLoadCapacity) {
         super(name, maxFuel, maxLoadCapacity);

@@ -45,7 +45,7 @@ public abstract class ShipTemplate {
             System.out.println("Is impossible to tank with this value");
             return;
         } else {
-            this.currentTankStatus += currentTankStatus;
+            this.currentTankStatus = currentTankStatus;
         }
     }
 
@@ -70,7 +70,7 @@ public abstract class ShipTemplate {
             System.out.println("Is impossible to load ship with this value");
             return;
         } else {
-            this.currentLoadStatus += currentLoadStatus;
+            this.currentLoadStatus = currentLoadStatus;
         }
     }
 }
