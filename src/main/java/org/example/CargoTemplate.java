@@ -6,7 +6,11 @@ public abstract class CargoTemplate {
 
     protected CargoTemplate(String name, int weight) {
         this.name = name;
-        this.weight = weight;
+        if (weight < 0) {
+            System.out.println("It's impossible to have this value of Cargo");
+        } else {
+            this.weight = weight;
+        }
     }
 
     protected void setName(String name) {

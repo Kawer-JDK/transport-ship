@@ -6,4 +6,8 @@ public class Cargo extends CargoTemplate {
         super(name, weight);
     }
 
+    public void addCargo() {
+
+    }
+
 }
